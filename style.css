@@ -95,11 +95,12 @@ header ul
 {
     display: flex;
 }
-.tab-links li a
+.tab-links li 
 {
     text-decoration: none;
     font-weight: 500;
     color: #8a2435;
+    cursor: pointer;
 }
 .tab-links li 
 {
