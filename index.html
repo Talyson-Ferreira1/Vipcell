@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>VipCell</title>
 </head>
-<body>
-    <div class="warning"><span> Esse projeto tem fins educacionais</span></div>
-    <main>
+<body onload="load()">
+    <div class="containerLoad">
+
+        <div class="loader">
+            <span class="bar-loading"></span>
+            <span class="bar-loading"></span>
+            <span class="bar-loading"></span>
+        </div>
+
+    </div>
+    <main class="aplicacao">
+        <div class="warning"><span> Esse projeto tem fins educacionais</span></div>
         
         <div class="container">
 
@@ -216,71 +226,6 @@
         </div>
     </main>
     <script type="text/javascript" src="vanilla-tilt.js"></script>
-    <script>
-
-        const $ = document.querySelector.bind(document)
-
-        function TabNavigation(){
-
-        const html = {
-            links: [...$('.tab-links').children],
-            contents: [...$('.tab-contents').children],
-            openTab: $('[data-open]')
-        }
-        
-        function hideAllContent(){
-            html.contents.forEach(section => {
-                section.style.display = "none"
-            })
-        }
-        
-        function removeAllActiveClass(){
-            html.links.forEach(tab=>{
-                tab.className = tab.className.replace(" active", "")
-            })
-        }
-        
-        function showCurrentTab(id){
-
-            hideAllContent()
-            removeAllActiveClass()
-
-            const tabcontent = $('#' + id)
-            tabcontent.style.display="flex"
-
-        }
-       
-        function selectTab(event){
-            const target = event.currentTarget
-            showCurrentTab(target.dataset.id)
-
-            target.className += " active"
-
-        }
-        
-        function listenForChanges(){
-           html.links.forEach(tab => {
-            tab.addEventListener('click', selectTab)
-           })
-        }
-        
-        function init(){
-            hideAllContent()
-            listenForChanges()
-
-            html.openTab.click()
-    
-        }
-        
-        return{
-            init
-        }
-       }
-       
-        window.addEventListener('load', ()=>{
-            const tabNavigation = TabNavigation()
-            tabNavigation.init()
-        })
-    </script>
+    <script src="./index.js"></script>
 </body>
 </html>
